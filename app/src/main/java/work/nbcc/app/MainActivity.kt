@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
 
@@ -27,7 +28,8 @@ class MainActivity : AppCompatActivity() {
         Question(R.string.question_17, true),
         Question(R.string.question_18, false),
         Question(R.string.question_19, false),
-        Question(R.string.question_20, true))
+        Question(R.string.question_20, true)
+    )
 
     private var questionIndex = 0
 
@@ -35,14 +37,35 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        findViewById<Button>(R.id.next_button).setOnClickListener{
-            questionIndex = (questionIndex + 1) % 20 //Doing it so the last question go backs to the first one
+        findViewById<Button>(R.id.next_button).setOnClickListener {
+            questionIndex =
+                (questionIndex + 1) % 20 //Doing it so the last question go backs to the first one
             findViewById<TextView>(R.id.question_text).setText(questionBank[questionIndex].resourceId)
         }
 
-        findViewById<Button>(R.id.button_previous).setOnClickListener{
-            questionIndex = (questionBank.size - 1)
-            findViewById<TextView>(R.id.question_text).setText(questionBank[questionIndex].resourceId)
+        findViewById<Button>(R.id.button_previous).setOnClickListener {
+            if(questionIndex == 0){
+                questionIndex = questionBank.size - 1
+            } else {
+                questionIndex = (questionIndex - 1)
+                findViewById<TextView>(R.id.question_text).setText(questionBank[questionIndex].resourceId)
+            }
+        }
+
+        findViewById<Button>(R.id.button_true).setOnClickListener {
+            checkAnswer(true)
+        }
+
+        findViewById<Button>(R.id.button_false).setOnClickListener {
+            checkAnswer(false)
+        }
+    }
+
+    private fun checkAnswer(answer: Boolean) {
+        if(answer == questionBank[questionIndex].answer){
+            Toast.makeText(this, "Correct Answer", Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(this, "Wrong Answer", Toast.LENGTH_SHORT).show()
         }
     }
 }

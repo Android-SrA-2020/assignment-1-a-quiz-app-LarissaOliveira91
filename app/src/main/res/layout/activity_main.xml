@@ -8,15 +8,15 @@
     android:layout_gravity="center_vertical"
     tools:context=".MainActivity">
 
+
     <TextView
         android:id="@+id/question_text"
-        android:layout_width="342dp"
+        android:layout_width="373dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:layout_margin="20dp"
-        android:text="Hello World!"
+        android:text="Welcome to the Rick and Morty Quiz!"
         android:textAlignment="center" />
-
 
     <LinearLayout
         android:layout_width="wrap_content"
