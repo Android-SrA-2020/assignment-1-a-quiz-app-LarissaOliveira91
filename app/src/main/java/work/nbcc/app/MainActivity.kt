@@ -37,6 +37,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val fragment = CheatFragment()
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.btn_cheat, fragment)
+        transaction.commit()
+
         findViewById<Button>(R.id.next_button).setOnClickListener {
             questionIndex =
                 (questionIndex + 1) % 20 //Doing it so the last question go backs to the first one

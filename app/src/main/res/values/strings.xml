@@ -25,4 +25,10 @@
     <string name="button_previous"><![CDATA[<]]></string>
     <string name="button_true">TRUE</string>
     <string name="button_false">false</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="rmlabel"><![CDATA[About Rick & Morty]]></string>
+    <string name="aboutRM">The show revolves around the adventures of the members of the Smith household, which consists of parents Jerry and Beth, their children Summer and Morty, and Beths father, Rick Sanchez, who lives with them as a guest. According to Justin Roiland, the family lives outside of Seattle, Washington.</string>
+    <string name="button_cheat">CHEAT</string>
+    <string name="button_cancel">CANCEL</string>
 </resources>
